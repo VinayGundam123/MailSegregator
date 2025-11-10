@@ -12,6 +12,10 @@ export default defineConfig({
     proxy: {
       '/emails': 'http://localhost:3000',
       '/reply': 'http://localhost:3000',
+      '/accounts': 'http://localhost:3000',
+      '/ai': 'http://localhost:3000',
+      '/dev': 'http://localhost:3000',
+      '/health': 'http://localhost:3000',
     }
   }
 })
