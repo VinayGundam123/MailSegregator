@@ -31,8 +31,9 @@ app.use('/accounts', accountRoutes);
 app.use('/ai', aiRoutes);
 app.get('/health', (_req, res) => res.json({ ok: true }));
 
-// Serve static files from dist folder in production
-const distPath = path.join(__dirname, "./dist");
+// Serve static files from frontend dist folder
+// __dirname will be backend/dist after compilation, so we go up to backend/src/dist
+const distPath = path.join(__dirname, "../src/dist");
 app.use(express.static(distPath));
 
 // SPA fallback - catch all other routes (Express 5 compatible)

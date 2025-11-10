@@ -30,8 +30,9 @@ app.use('/reply', reply_1.default);
 app.use('/accounts', accounts_1.default);
 app.use('/ai', ai_1.default);
 app.get('/health', (_req, res) => res.json({ ok: true }));
-// Serve static files from dist folder in production
-const distPath = path_1.default.join(__dirname, "./dist");
+// Serve static files from frontend dist folder
+// __dirname will be backend/dist after compilation, so we go up to backend/src/dist
+const distPath = path_1.default.join(__dirname, "../src/dist");
 app.use(express_1.default.static(distPath));
 // SPA fallback - catch all other routes (Express 5 compatible)
 app.use((_req, res) => {
