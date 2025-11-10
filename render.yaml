@@ -3,9 +3,8 @@ services:
     name: reachinbox-onebox
     env: node
     region: oregon
-    rootDir: backend
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    buildCommand: cd frontend && npm install && npm run build && cd ../backend && npm install && npm run build && cd .. && cp -r frontend/dist ./dist
+    startCommand: cd backend && npm start
     envVars:
       - key: NODE_ENV
         value: production
