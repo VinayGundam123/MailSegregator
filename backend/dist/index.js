@@ -33,8 +33,8 @@ app.get('/health', (_req, res) => res.json({ ok: true }));
 // Serve static files from dist folder in production
 const distPath = path_1.default.join(__dirname, "./dist");
 app.use(express_1.default.static(distPath));
-// SPA fallback - catch all other routes
-app.get('*', (_req, res) => {
+// SPA fallback - catch all other routes (Express 5 compatible)
+app.use((_req, res) => {
     res.sendFile(path_1.default.join(distPath, 'index.html'));
 });
 const PORT = process.env.PORT || 3000;

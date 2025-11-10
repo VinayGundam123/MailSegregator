@@ -35,8 +35,8 @@ app.get('/health', (_req, res) => res.json({ ok: true }));
 const distPath = path.join(__dirname, "./dist");
 app.use(express.static(distPath));
 
-// SPA fallback - catch all other routes
-app.get('*', (_req, res) => {
+// SPA fallback - catch all other routes (Express 5 compatible)
+app.use((_req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
 
