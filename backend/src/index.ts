@@ -32,11 +32,12 @@ app.use('/ai', aiRoutes);
 app.get('/health', (_req, res) => res.json({ ok: true }));
 
 // Serve static files from dist folder in production
-app.use(express.static(path.join(__dirname, '../../dist')));
+const distPath = path.join(__dirname, '../dist');
+app.use(express.static(distPath));
 
 // SPA fallback - catch all other routes
-app.use((_req, res) => {
-  res.sendFile(path.join(__dirname, '../../dist/index.html'));
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
