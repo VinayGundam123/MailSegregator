@@ -32,7 +32,7 @@ app.use('/ai', aiRoutes);
 app.get('/health', (_req, res) => res.json({ ok: true }));
 
 // Serve static files from dist folder in production
-const distPath = path.join(__dirname, '../dist');
+const distPath = path.join(__dirname, "./dist");
 app.use(express.static(distPath));
 
 // SPA fallback - catch all other routes
