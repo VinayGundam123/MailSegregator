@@ -33,7 +33,9 @@ app.get('/health', (_req, res) => res.json({ ok: true }));
 
 // Serve static files from dist folder in production
 app.use(express.static(path.join(__dirname, '../../dist')));
-app.get('*', (_req, res) => {
+
+// SPA fallback - catch all other routes
+app.use((_req, res) => {
   res.sendFile(path.join(__dirname, '../../dist/index.html'));
 });
 
