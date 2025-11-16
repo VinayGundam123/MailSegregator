@@ -1,4 +1,4 @@
-# ReachInbox - AI-Powered Email Management System
+# MailSegregator- AI-Powered Email Management System
 
 A full-stack email management application with AI categorization, multi-folder sync, and intelligent reply suggestions using RAG (Retrieval-Augmented Generation).
 
