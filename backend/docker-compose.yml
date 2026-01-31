@@ -14,15 +14,3 @@ services:
       - esdata:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
-
-  weaviate:
-    image: semitechnologies/weaviate:1.19.2
-    environment:
-      - QUERY_DEFAULTS_LIMIT=20
-      - PERSISTENCE_DATA_PATH=/var/lib/weaviate
-      - DEFAULT_VECTORIZER_MODULE=none
-    ports:
-      - "8080:8080"
-
-volumes:
-  esdata:
